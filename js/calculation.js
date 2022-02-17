@@ -62,12 +62,12 @@ document.getElementById('calculate-button').addEventListener('click', function (
     const getTotalExpensesAmount = parseFloat(getTotalExpensesText);
     const totalExpensesAmount = getTotalExpensesAmount + totalCost;
     getTotalExpenses.innerText = totalExpensesAmount;
+    // error message 
     if (totalExpensesAmount > incomeInputAmount) {
         const highPirce = document.getElementById('high-price');
         highPirce.style.display = 'block';
         return;
-    }
-
+    };
 
     // balance 
     const balanceAvailable = incomeInputAmount - totalExpensesAmount;
@@ -85,11 +85,12 @@ document.getElementById('calculate-button').addEventListener('click', function (
         const incomeInputAmount = incomeInput();
 
         const percentage = (incomeInputAmount / 100) * saveInputField;
+        // error message 
         if (balanceAvailable < percentage) {
             highPercentage = document.getElementById('high-percentage');
             highPercentage.style.display = 'block';
             return;
-        }
+        };
 
         const getSavingAmount = document.getElementById('saving-amount');
         getSavingAmount.innerText = percentage;

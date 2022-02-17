@@ -1,15 +1,11 @@
 .image img{
-    width: 520px;
-    height: 620px;
     margin: auto;
     margin-top: 20px;
 }
 .calculation{
     background-color:#F8F8F8;
     text-align: center;
-    width: 520px;
-    margin: 30px;
-    height: 620px;
+    margin: 20px;
     padding-top: 80px;
 }
 
