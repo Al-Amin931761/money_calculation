@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- tailwind cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <h6 class="text-center font-bold text-3xl text-cyan-400">Money Master</h6>
+    <section class="grid grid-cols-2">
+        <div class="image">
+            <img src="image/money2.jpg" alt="">
+        </div>
+
+        <div class="text-center">
+            <h4>Income</h4>
+            <!-- income  -->
+            <span>Income:</span>
+            <input id="income-input" class="border-2 border-rose-600" type="text">
+
+            <h4>Expenses</h4>
+            <!-- food  -->
+            <div class="my-6">
+                <span>Food:</span>
+                <input id="food-input" class="border-2 border-rose-600" type="text">
+                <br>
+            </div>
+            <!-- rent  -->
+            <div class="my-6">
+                <span>Rent:</span>
+                <input id="rent-input" class="border-2 border-rose-600" type="text">
+                <br>
+            </div>
+
+            <!-- clothes  -->
+            <div class="my-6">
+                <span>Clothes:</span>
+                <input id="clothes-input" class="border-2 border-rose-600" type="text">
+                <br>
+            </div>
+            <button id="calculate-button"
+                class="bg-teal-400 text-white font-medium px-4 py-1 rounded">Calculate</button>
+
+            <p id="total-expenses">Total Expenses: <span>5500</span> </p>
+            <br>
+            <p id="balance">Balance: <span>4500</span></p>
+
+            <!-- save money  -->
+            <span>Save</span>
+            <input class="border-2 border-rose-600" type="text">
+            <span>%</span>
+            <button class="bg-teal-400 text-white font-medium px-4 py-1 rounded">Save</button>
+            <p>Saving Amount: <span>5500</span></p>
+            <p>Remaining Balance: <span>2500</span></p>
+        </div>
+    </section>
+
+
+    <script src="js/calculation.js"></script>
+</body>
+
+</html>
