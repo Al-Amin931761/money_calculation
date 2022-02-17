@@ -1,19 +1,42 @@
 function getInputValue(inputID) {
-    const foodInput = document.getElementById(inputID);
-    const foodInputAmountText = foodInput.value;
-    const foodInputAmount = parseFloat(foodInputAmountText);
+    const input = document.getElementById(inputID);
+    const inputAmountText = input.value;
+    const inputAmount = parseFloat(inputAmountText);
+    // error message 
+    if (isNaN(inputAmount)) {
+        const stringMessage = document.getElementById('string');
+        stringMessage.style.display = 'block';
+        return;
+    };
+    if (inputAmount < 0) {
+        const negativeNumberMessage = document.getElementById('negative-number');
+        negativeNumberMessage.style.display = 'block';
+        return;
+    };
     // clear input field
-    foodInput.value = '';
-    return foodInputAmount;
-}
+    input.value = '';
+    return inputAmount;
+};
 
 //income input
 function incomeInput() {
     const incomeInput = document.getElementById('income-input');
     const incomeInputAmountText = incomeInput.value;
     const incomeInputAmount = parseFloat(incomeInputAmountText);
+    // error message 
+    if (isNaN(incomeInputAmount)) {
+        const stringMessage = document.getElementById('string');
+        stringMessage.style.display = 'block';
+        return;
+    };
+    if (incomeInputAmount < 0) {
+        const negativeNumberMessage = document.getElementById('negative-number');
+        negativeNumberMessage.style.display = 'block';
+        return;
+    };
     return incomeInputAmount;
-}
+
+};
 
 // handle calculate button
 document.getElementById('calculate-button').addEventListener('click', function () {
@@ -39,13 +62,17 @@ document.getElementById('calculate-button').addEventListener('click', function (
     const getTotalExpensesAmount = parseFloat(getTotalExpensesText);
     const totalExpensesAmount = getTotalExpensesAmount + totalCost;
     getTotalExpenses.innerText = totalExpensesAmount;
+    if (totalExpensesAmount > incomeInputAmount) {
+        const highPirce = document.getElementById('high-price');
+        highPirce.style.display = 'block';
+        return;
+    }
 
 
     // balance 
     const balanceAvailable = incomeInputAmount - totalExpensesAmount;
     const balanceField = document.getElementById('balance');
     balanceField.innerText = balanceAvailable;
-
 
 
     // handle save button 
@@ -58,10 +85,15 @@ document.getElementById('calculate-button').addEventListener('click', function (
         const incomeInputAmount = incomeInput();
 
         const percentage = (incomeInputAmount / 100) * saveInputField;
-        // console.log(percentage);
+        if (balanceAvailable < percentage) {
+            highPercentage = document.getElementById('high-percentage');
+            highPercentage.style.display = 'block';
+            return;
+        }
 
         const getSavingAmount = document.getElementById('saving-amount');
         getSavingAmount.innerText = percentage;
+
         // clear input field
         getSaveInputField.value = '';
 
