@@ -2,21 +2,40 @@
 document.getElementById('calculate-button').addEventListener('click', function () {
     // income input field
     const incomeInput = document.getElementById('income-input');
-    const incomeInputAmount = incomeInput.value;
-    console.log(incomeInputAmount);
+    const incomeInputAmountText = incomeInput.value;
+    const incomeInputAmount = parseFloat(incomeInputAmountText);
+
 
     // food input field
     const foodInput = document.getElementById('food-input');
-    const foodInputAmount = foodInput.value;
-    console.log(foodInputAmount);
+    const foodInputAmountText = foodInput.value;
+    const foodInputAmount = parseFloat(foodInputAmountText);
+
 
     // rent input field 
     const rentInput = document.getElementById('rent-input');
-    const rentInputAmount = rentInput.value;
-    console.log(rentInputAmount);
+    const rentInputAmountText = rentInput.value;
+    const rentInputAmount = parseFloat(rentInputAmountText);
+
+
 
     // clothes input field
     const clothesInput = document.getElementById('clothes-input');
-    const clothesInputAmount = clothesInput.value;
-    console.log(clothesInputAmount);
+    const clothesInputAmountText = clothesInput.value;
+    const clothesInputAmount = parseFloat(clothesInputAmountText);
+
+    // total cost 
+    const totalCost = foodInputAmount + rentInputAmount + clothesInputAmount;
+
+
+    // total expenses
+    const getTotalExpenses = document.getElementById('total-expenses');
+    const getTotalExpensesText = getTotalExpenses.innerText;
+    const getTotalExpensesAmount = parseFloat(getTotalExpensesText);
+    const totalExpensesAmount = getTotalExpensesAmount + totalCost;
+
+    getTotalExpenses.innerText = totalExpensesAmount;
+
+
+
 })
