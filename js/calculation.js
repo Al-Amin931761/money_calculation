@@ -38,12 +38,28 @@ document.getElementById('calculate-button').addEventListener('click', function (
 
 
     // balance 
-    const incomeInputField = document.getElementById('income-input');
-    const incomeInputFieldText = incomeInputField.value;
-    const incomeInputFieldAmount = parseFloat(incomeInputFieldText);
-
-    const balanceAvailable = incomeInputFieldAmount - totalExpensesAmount;
+    const balanceAvailable = incomeInputAmount - totalExpensesAmount;
 
     const balanceField = document.getElementById('balance');
     balanceField.innerText = balanceAvailable;
+});
+
+
+// handle save button 
+document.getElementById('save-button').addEventListener('click', function () {
+    // console.log(' save button clicked')
+    const getSaveInputField = document.getElementById('save-input');
+    const saveInputFieldText = getSaveInputField.value;
+    const saveInputField = parseFloat(saveInputFieldText);
+
+    // percentage
+    const incomeInputField = document.getElementById('income-input');
+    const incomeInputFieldText = incomeInputField.value;
+    const incomeInput = parseFloat(incomeInputFieldText);
+
+    const percentage = (incomeInput / 100) * saveInputField;
+    // console.log(percentage);
+
+    const getSavingAmount = document.getElementById('saving-amount');
+    getSavingAmount.innerText = percentage;
 })
