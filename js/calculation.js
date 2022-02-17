@@ -1,28 +1,34 @@
-// handle calculate button
-document.getElementById('calculate-button').addEventListener('click', function () {
-    // income input field
+function getInputValue(inputID) {
+    const foodInput = document.getElementById(inputID);
+    const foodInputAmountText = foodInput.value;
+    const foodInputAmount = parseFloat(foodInputAmountText);
+    // clear input field
+    foodInput.value = '';
+    return foodInputAmount;
+}
+
+//income input
+function incomeInput() {
     const incomeInput = document.getElementById('income-input');
     const incomeInputAmountText = incomeInput.value;
     const incomeInputAmount = parseFloat(incomeInputAmountText);
+    return incomeInputAmount;
+}
 
+
+// handle calculate button
+document.getElementById('calculate-button').addEventListener('click', function () {
+    // income input field
+    const incomeInputAmount = incomeInput()
 
     // food input field
-    const foodInput = document.getElementById('food-input');
-    const foodInputAmountText = foodInput.value;
-    const foodInputAmount = parseFloat(foodInputAmountText);
-
+    const foodInputAmount = getInputValue('food-input');
 
     // rent input field 
-    const rentInput = document.getElementById('rent-input');
-    const rentInputAmountText = rentInput.value;
-    const rentInputAmount = parseFloat(rentInputAmountText);
-
-
+    const rentInputAmount = getInputValue('rent-input');
 
     // clothes input field
-    const clothesInput = document.getElementById('clothes-input');
-    const clothesInputAmountText = clothesInput.value;
-    const clothesInputAmount = parseFloat(clothesInputAmountText);
+    const clothesInputAmount = getInputValue('clothes-input');
 
     // total cost 
     const totalCost = foodInputAmount + rentInputAmount + clothesInputAmount;
@@ -47,7 +53,6 @@ document.getElementById('calculate-button').addEventListener('click', function (
 
 // handle save button 
 document.getElementById('save-button').addEventListener('click', function () {
-    // console.log(' save button clicked')
     const getSaveInputField = document.getElementById('save-input');
     const saveInputFieldText = getSaveInputField.value;
     const saveInputField = parseFloat(saveInputFieldText);
@@ -55,18 +60,13 @@ document.getElementById('save-button').addEventListener('click', function () {
     // percentage
 
     //income input
-    const incomeInputField = document.getElementById('income-input');
-    const incomeInputFieldText = incomeInputField.value;
-    const incomeInput = parseFloat(incomeInputFieldText);
+    const incomeInputAmount = incomeInput();
 
-
-
-    const percentage = (incomeInput / 100) * saveInputField;
+    const percentage = (incomeInputAmount / 100) * saveInputField;
     // console.log(percentage);
 
     const getSavingAmount = document.getElementById('saving-amount');
     getSavingAmount.innerText = percentage;
-
-    //remaining balance
-
+    // clear input field
+    getSaveInputField.value = '';
 })
