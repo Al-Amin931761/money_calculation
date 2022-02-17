@@ -37,5 +37,13 @@ document.getElementById('calculate-button').addEventListener('click', function (
     getTotalExpenses.innerText = totalExpensesAmount;
 
 
+    // balance 
+    const incomeInputField = document.getElementById('income-input');
+    const incomeInputFieldText = incomeInputField.value;
+    const incomeInputFieldAmount = parseFloat(incomeInputFieldText);
 
+    const balanceAvailable = incomeInputFieldAmount - totalExpensesAmount;
+
+    const balanceField = document.getElementById('balance');
+    balanceField.innerText = balanceAvailable;
 })
