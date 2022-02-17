@@ -53,13 +53,20 @@ document.getElementById('save-button').addEventListener('click', function () {
     const saveInputField = parseFloat(saveInputFieldText);
 
     // percentage
+
+    //income input
     const incomeInputField = document.getElementById('income-input');
     const incomeInputFieldText = incomeInputField.value;
     const incomeInput = parseFloat(incomeInputFieldText);
+
+
 
     const percentage = (incomeInput / 100) * saveInputField;
     // console.log(percentage);
 
     const getSavingAmount = document.getElementById('saving-amount');
     getSavingAmount.innerText = percentage;
+
+    //remaining balance
+
 })
